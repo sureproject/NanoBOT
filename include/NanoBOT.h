@@ -1,0 +1,78 @@
+#include <Arduino.h>
+#include <Wire.h>  
+#include <SPI.h>
+
+#include "Servo.h"
+#include "Adafruit_GFX.h"
+#include "Adafruit_SSD1306.h"
+
+// Motor drive TB6612FNG config pin
+#define AIN1 5
+#define AIN2 4
+#define BIN1 7
+#define BIN2 8
+#define PWMA 3
+#define PWMB 9
+#define STBY 6
+
+#include "nano_motor.h"
+
+Adafruit_SSD1306 display(128, 64);
+
+typedef int Number;
+typedef int Boolean;
+
+
+#define _servo1 0
+#define _servo2 1
+#define _servo3 2
+#define _servo4 10
+
+#define _servo5 11
+#define _servo6 12
+
+#include "nano_servo.h"
+
+#define _knob A7
+
+
+void NanoBOT(){
+	display.begin(SSD1306_SWITCHCAPVCC, 0x3C); 
+	
+	display.clearDisplay(); 
+	display.display(); 
+	
+	display.setTextColor(WHITE, BLACK); 
+	display.setCursor(22, 10);
+	display.setTextSize(2);
+	display.println("NanoBOT");
+	 
+	display.setTextSize(1);
+	display.setTextColor(BLACK, WHITE);
+	display.setCursor(20, 30);
+	display.print("www.itmaker.co");
+	display.setTextColor(WHITE, BLACK);
+	
+	display.setCursor(30, 40); 
+	display.setTextSize(2); 
+	display.println("Ready!");
+	 	 
+	display.display(); 
+	delay(1000); //while(1);
+	
+	display.clearDisplay();
+	display.setCursor(40, 24); 
+	display.setTextSize(3); 
+	display.println("GO!");
+	display.display(); 
+	delay(1000); 
+	
+	pinMode(AIN1, OUTPUT);
+	pinMode(AIN2, OUTPUT);
+	pinMode(BIN1, OUTPUT);
+	pinMode(BIN2, OUTPUT);
+	pinMode(PWMA, OUTPUT);
+	pinMode(PWMB, OUTPUT);
+	pinMode(STBY, OUTPUT);
+	digitalWrite(STBY, 1);
+}
