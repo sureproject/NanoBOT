@@ -2,7 +2,7 @@ module.exports = {
     name : 'NanoBOT',
     platform : 'arduino-avr',
     title : 'NanoBOT',
-    description : 'Arduino NANO Robot',
+    description : 'NanoBOT บอร์ดเรียนรู้สำหรับสร้างหุ่นยนต์ และระบบอัตโนมัติ',
     author : 'Home IT Maker',
     website : 'http://www.itmaker.co',
     email : 'sector105@gmail.com',
