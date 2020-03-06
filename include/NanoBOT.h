@@ -75,4 +75,5 @@ void NanoBOT(){
 	pinMode(PWMB, OUTPUT);
 	pinMode(STBY, OUTPUT);
 	digitalWrite(STBY, 1);
+	
 }
