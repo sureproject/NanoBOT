@@ -395,7 +395,8 @@ module.exports = {
                         </value>
                         
                     </block>`
-                }
+                },
+				'nano_beep'
             ]
         },
 		{

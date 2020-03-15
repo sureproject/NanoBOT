@@ -2,14 +2,14 @@ module.exports = function(Blockly){
   'use strict';
 
 Blockly.JavaScript['sw1_press'] = function(block) {  
-  //var code = 'wait();\n';
-  var code = '';
+  var code = 'wait();\n';
+  //var code = '';
   return code;
 };
 
 Blockly.JavaScript['button_1_status'] = function(block) {  
-  //var code = '(botton.digitalRead(P1))';  
-  var code = '';  
+  var code = `digitalRead(13)`; 
+  //var code = '';  
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -38,10 +38,12 @@ Blockly.JavaScript['Knob_status'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-/*Blockly.JavaScript['WIT_beep'] = function(block) {  
+Blockly.JavaScript['nano_beep'] = function(block) {  
   var code = 'beep();\n';
   return code;
 };
+
+/*
 Blockly.JavaScript['WIT_beep_on'] = function(block) {  
   var code = 'beep_on();\n';
   return code;

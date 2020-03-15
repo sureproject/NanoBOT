@@ -92,8 +92,8 @@ Blockly.Blocks['Knob_status'] = {
   }
 };
 
-/*
-Blockly.Blocks['WIT_beep'] = {
+
+Blockly.Blocks['nano_beep'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Buzzer beep");
@@ -104,6 +104,8 @@ Blockly.Blocks['WIT_beep'] = {
  this.setHelpUrl("");
   }
 };
+
+/*
 Blockly.Blocks['WIT_beep_delay'] = {
   init: function() {
     this.appendValueInput("_delay")
