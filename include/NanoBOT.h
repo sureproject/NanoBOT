@@ -13,7 +13,8 @@
 #define BIN2 8
 #define PWMA 3
 #define PWMB 9
-#define STBY 6
+
+#define _BZ 6
 
 #include "nano_motor.h"
 
@@ -34,7 +35,17 @@ typedef int Boolean;
 #include "nano_servo.h"
 
 #define _knob A7
+#define _BT 13
 
+/*
+#define _A0 22	// 0
+#define _A1 23	// 1
+#define _A2 24	// 2
+#define _A3 25	// 3
+*/
+
+void wait();
+void beep();
 
 void NanoBOT(){
 	display.begin(SSD1306_SWITCHCAPVCC, 0x3C); 
@@ -73,7 +84,37 @@ void NanoBOT(){
 	pinMode(BIN2, OUTPUT);
 	pinMode(PWMA, OUTPUT);
 	pinMode(PWMB, OUTPUT);
-	pinMode(STBY, OUTPUT);
-	digitalWrite(STBY, 1);
-	
+	//pinMode(STBY, OUTPUT);
+	//digitalWrite(STBY, 1);
+	//beep();
+}
+
+void wait(){
+	// Press for button press //
+	display.clearDisplay();
+	display.setTextColor(WHITE, BLACK); 
+	display.setCursor(30, 10);
+	display.setTextSize(2);
+	display.println("Press!");
+	display.setCursor(30, 30);
+	display.println("Button");
+	display.setTextSize(1);
+	display.setCursor(30, 50);
+	display.setTextColor(BLACK, WHITE);
+	display.println("to continue.");
+	display.setTextColor(WHITE, BLACK);
+	display.display();
+  
+	int button = 0;
+	do{
+		button = digitalRead(_BT);
+	}while(!button);
+	// End - Press for button press //
+}
+
+void beep(){
+  pinMode(_BZ,OUTPUT);
+  digitalWrite(_BZ,HIGH);
+  delay(200);
+  digitalWrite(_BZ,LOW);
 }
